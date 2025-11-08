@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💖 What I Feel About You</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fad0c4, #ff9a9e);
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+      padding: 20px;
+      position: relative;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.92);
+      padding: 40px 30px;
+      border-radius: 25px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      max-width: 600px;
+      animation: fadeIn 2s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      color: #ff4081;
+      margin-bottom: 15px;
+      font-size: 1.7rem;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.7;
+      text-align: left;
+      white-space: pre-line;
+    }
+
+    .signature {
+      text-align: right;
+      margin-top: 15px;
+      font-style: italic;
+      color: #ff4081;
+      font-weight: 600;
+    }
+
+    button {
+      background: #ff4081;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background: #e73370;
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(231, 51, 112, 0.3);
+    }
+
+    /* ❤️ Floating hearts */
+    .heart {
+      position: absolute;
+      background: #ff4d6d;
+      transform: rotate(45deg);
+      animation: floatUp 8s infinite ease-in;
+      opacity: 0.8;
+      z-index: 1;
+    }
+
+    .heart::before, .heart::after {
+      content: "";
+      position: absolute;
+      background: inherit;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -50%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .heart::after {
+      top: 0;
+      left: -50%;
+      width: 100%;
+      height: 100%;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 0.8;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-110vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>💖 Hey Abhishek,</h1>
+    <p>
+There’s something I’ve been keeping in my heart for a long time…
+and today I finally want to say it.
+
+The very first time I saw you — 20 March 2025 —
+I didn’t know a single thing about you,
+but somehow my heart recognized you before my mind did.
+
+Since that day, your name has become my favourite,
+your presence feels like comfort,
+and even your silence feels peaceful to me.
+
+I don’t know how it happened,
+but little by little… you became special to me.
+You are the person my eyes search for,
+and the reason my heart smiles without any reason.
+
+So today, without overthinking,
+I just want to say it clearly…
+
+<b>I like you, Abhiiii.<br>
+More than a friend.<br>
+More than I ever expected.</b>
+
+No expectations, no pressure —
+just a heart finally telling its truth. ❤
+    </p>
+    <div class="signature">— Shweta</div>
+    <button id="continueBtn">Continue 💌</button>
+  </div>
+
+  <script>
+    // ❤️ Generate floating hearts dynamically after page load
+    window.addEventListener("load", () => {
+      const colors = ['#ff4d6d', '#ff8fa3', '#ffb6c1', '#ffc1cc'];
+      const numHearts = 25; // ❤️ total number of hearts
+
+      for (let i = 0; i < numHearts; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+
+        // random size for realism
+        const size = Math.random() * 20 + 10;
+        heart.style.width = `${size}px`;
+        heart.style.height = `${size}px`;
+
+        // random position & animation
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = 6 + Math.random() * 6 + 's';
+        heart.style.animationDelay = Math.random() * 5 + 's';
+        heart.style.background = colors[Math.floor(Math.random() * colors.length)];
+        heart.style.opacity = Math.random() * 0.6 + 0.4;
+
+        document.body.appendChild(heart);
+      }
+    });
+
+    // Redirect on button click
+    document.getElementById("continueBtn").addEventListener("click", () => {
+      document.body.style.opacity = "0";
+      document.body.style.transition = "opacity 1s ease";
+      setTimeout(() => {
+        window.location.href = "confess.html";
+      }, 1000);
+    });
+  </script>
+
+</body>
+</html>
