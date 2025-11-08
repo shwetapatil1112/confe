@@ -10,69 +10,91 @@
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #fad0c4, #ff9a9e);
       color: #333;
+      height: 100vh;
+      margin: 0;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      margin: 0;
       overflow: hidden;
-      padding: 20px;
       position: relative;
     }
 
-    .container {
+    .wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       background: rgba(255, 255, 255, 0.92);
-      padding: 40px 30px;
-      border-radius: 25px;
-      text-align: center;
       box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-      max-width: 600px;
-      animation: fadeIn 2s ease;
+      border-radius: 25px;
+      width: 85%;
+      max-width: 950px;
+      height: 65vh;
+      padding: 40px;
       position: relative;
       z-index: 2;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .text {
+      flex: 2;
+      padding-right: 25px;
+      text-align: left;
     }
 
     h1 {
       color: #ff4081;
-      margin-bottom: 15px;
-      font-size: 1.7rem;
+      margin-bottom: 10px;
+      font-size: 1.6rem;
     }
 
     p {
-      font-size: 1rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
       color: #444;
-      line-height: 1.7;
-      text-align: left;
       white-space: pre-line;
+      margin: 0;
+    }
+
+    b {
+      color: #e73370;
     }
 
     .signature {
       text-align: right;
-      margin-top: 15px;
+      margin-top: 8px;
       font-style: italic;
       color: #ff4081;
       font-weight: 600;
+    }
+
+    .button-box {
+      flex: 0.7;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      text-align: center;
     }
 
     button {
       background: #ff4081;
       color: white;
       border: none;
-      padding: 12px 25px;
-      border-radius: 10px;
-      font-size: 1rem;
+      padding: 14px 30px;
+      border-radius: 12px;
+      font-size: 1.1rem;
       cursor: pointer;
       transition: 0.3s;
-      margin-top: 20px;
+      box-shadow: 0 4px 10px rgba(231, 51, 112, 0.3);
     }
 
     button:hover {
       background: #e73370;
       transform: scale(1.05);
-      box-shadow: 0 0 10px rgba(231, 51, 112, 0.3);
     }
 
-    /* ❤️ Floating hearts */
+    /* Floating hearts */
     .heart {
       position: absolute;
       background: #ff4d6d;
@@ -104,87 +126,82 @@
     }
 
     @keyframes floatUp {
-      0% {
-        transform: translateY(0) rotate(45deg);
-        opacity: 0.8;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-110vh) rotate(45deg);
-        opacity: 0;
-      }
+      0% { transform: translateY(0) rotate(45deg); opacity: 0.8; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-110vh) rotate(45deg); opacity: 0; }
     }
 
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    @media (max-width: 768px) {
+      .wrapper {
+        flex-direction: column;
+        height: auto;
+        padding: 30px 20px;
+      }
+      .text {
+        padding-right: 0;
+      }
+      .button-box {
+        margin-top: 25px;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <h1>💖 Hey Abhishek,</h1>
-    <p>
-There’s something I’ve been keeping in my heart for a long time…
-and today I finally want to say it.
+  <div class="wrapper">
+    <div class="text">
+      <h1>💖 Hey Abhishek,</h1>
+      <p>
+I’ve been holding onto something for a while now…  
+and today, I just want to say it out loud.
 
-The very first time I saw you — 20 March 2025 —
-I didn’t know a single thing about you,
-but somehow my heart recognized you before my mind did.
+From the very first time I saw you —  
+I didn’t know why, but my heart felt something familiar.  
+You’ve been on my mind since then —  
+your name, your smile, your quiet presence —  
+it all feels like home.
 
-Since that day, your name has become my favourite,
-your presence feels like comfort,
-and even your silence feels peaceful to me.
+So here it is, simply and honestly…
 
-I don’t know how it happened,
-but little by little… you became special to me.
-You are the person my eyes search for,
-and the reason my heart smiles without any reason.
+<b>I like you, Abhiiii.  
+More than a friend.  
+More than I ever expected. 💌</b>
+      </p>
+      <div class="signature">— Shweta</div>
+    </div>
 
-So today, without overthinking,
-I just want to say it clearly…
-
-<b>I like you, Abhiiii.<br>
-More than a friend.<br>
-More than I ever expected.</b>
-
-No expectations, no pressure —
-just a heart finally telling its truth. ❤
-    </p>
-    <div class="signature">— Shweta</div>
-    <button id="continueBtn">Continue 💌</button>
+    <div class="button-box">
+      <button id="continueBtn">Continue 💖</button>
+    </div>
   </div>
 
   <script>
-    // ❤️ Generate floating hearts dynamically after page load
+    // Floating hearts
     window.addEventListener("load", () => {
       const colors = ['#ff4d6d', '#ff8fa3', '#ffb6c1', '#ffc1cc'];
-      const numHearts = 25; // ❤️ total number of hearts
+      const numHearts = 25;
 
       for (let i = 0; i < numHearts; i++) {
         const heart = document.createElement('div');
         heart.classList.add('heart');
-
-        // random size for realism
-        const size = Math.random() * 20 + 10;
+        const size = Math.random() * 18 + 8;
         heart.style.width = `${size}px`;
         heart.style.height = `${size}px`;
-
-        // random position & animation
         heart.style.left = Math.random() * 100 + 'vw';
         heart.style.animationDuration = 6 + Math.random() * 6 + 's';
         heart.style.animationDelay = Math.random() * 5 + 's';
         heart.style.background = colors[Math.floor(Math.random() * colors.length)];
         heart.style.opacity = Math.random() * 0.6 + 0.4;
-
         document.body.appendChild(heart);
       }
     });
 
-    // Redirect on button click
+    // Fade transition
     document.getElementById("continueBtn").addEventListener("click", () => {
       document.body.style.opacity = "0";
       document.body.style.transition = "opacity 1s ease";
