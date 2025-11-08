@@ -3,38 +3,121 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>💌 Confess Your Feelings</title>
+  <title>💌 Confession Form</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.92);
+      padding: 30px;
+      border-radius: 25px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      text-align: center;
+      width: 90%;
+      max-width: 480px;
+      overflow-y: auto;
+      max-height: 95vh;
+    }
+    h1 {
+      color: #ff4081;
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      text-align: left;
+      font-weight: 500;
+    }
+    textarea, select {
+      width: 100%;
+      margin-top: 8px;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      resize: none;
+      font-size: 1rem;
+      background: #fff6f8;
+    }
+    button {
+      background: #ff4081;
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 10px;
+      margin-top: 20px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.2s;
+    }
+    button:hover {
+      background: #e73370;
+      transform: scale(1.03);
+    }
+  </style>
 </head>
 <body>
   <div class="container">
-    <h1>💖 Confession Corner</h1>
-    <p>Be honest... your feelings matter 🫶</p>
+    <h1>💌 Confession Corner</h1>
+    <p>Be honest and express what your heart feels 🩷</p>
 
-    <form id="confessionForm" action="https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse" method="POST">
-      <label>Your Confession 💌</label>
-      <textarea name="entry.1234567890" placeholder="Write your confession..." required></textarea>
+    <form id="confessionForm" action="https://docs.google.com/forms/d/e/1FAIpQLScqMhaeX6NNbKdEfQ7r0QGrgtAWiOQOM0u3pw6BCuel5aHNfg/formResponse" method="POST">
 
-      <label>Will it is yes? ❤️</label>
-      <select name="entry.0987654321" required>
-        <option value="">Select one...</option>
-        <option value="Yes">Yes 💖</option>
-        <option value="No">No 💔</option>
+      <!-- 1️⃣ Be honest and express what’s in your heart -->
+      <label>1. Be honest and express what’s in your heart. I deserve to know 💌</label>
+      <textarea name="entry.57430803" placeholder="Write your feelings here..." required></textarea>
+
+      <!-- 2️⃣ Choose what your heart says — no pressure 💖 -->
+      <label>2. Choose what your heart says — no pressure 💖</label>
+      <select name="entry.802287111" required>
+        <option value="">Select an answer...</option>
+        <option value="Yes 💖">Yes 💖</option>
+        <option value="No 💔">No 💔</option>
       </select>
 
-      <label>Relationship Type 👩‍❤️‍👨</label>
-      <select name="entry.1122334455" required>
+      <!-- 3️⃣ Just for fun — how do you see me in your life? -->
+      <label>3. Just for fun — how do you see me in your life? 🫶</label>
+      <select name="entry.996646381" required>
         <option value="">Select one...</option>
-        <option value="Crush">Crush</option>
-        <option value="Close Friend">Close Friend</option>
-        <option value="Soulmate">Soulmate</option>
-        <option value="Other">Other</option>
+        <option value="Crush 🥺">Crush 🥺</option>
+        <option value="Close Friend 💫">Close Friend 💫</option>
+        <option value="Soulmate 💕">Soulmate 💕</option>
+        <option value="Stranger 🌸">Stranger 🌸</option>
       </select>
 
-      <button type="submit">Submit Confession 💫</button>
+      <!-- 4️⃣ What did you think about me when you saw me for the first time -->
+      <label>4. What did you think about me when you saw me for the first time? 🥰</label>
+      <textarea name="entry.318429066" placeholder="Your first thought about me..." required></textarea>
+
+      <!-- 5️⃣ If you want me as your soulmate then what changes you want to see in me -->
+      <label>5. If you want me as your soulmate, what changes would you like to see in me? 💫</label>
+      <textarea name="entry.1445406753" placeholder="What would make me your perfect one?" required></textarea>
+
+      <!-- 6️⃣ Is there something you've been wanting to talk about but haven't had the chance -->
+      <label>6. Is there something you've been wanting to talk about but haven't had the chance? 🫣</label>
+      <textarea name="entry.470697205" placeholder="Let it all out... 💌" required></textarea>
+
+      <button type="submit">Send Confession 💫</button>
     </form>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    document.getElementById("confessionForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const form = e.target;
+      form.submit();
+      setTimeout(() => {
+        window.location.href = "thankyou.html";
+      }, 1200);
+    });
+  </script>
 </body>
 </html>
