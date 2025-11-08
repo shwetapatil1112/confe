@@ -1,1 +1,22 @@
-<h1> this one is for header </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎉 Birthday & Confession Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container intro">
+    <h1>🎂 Happy Birthday <span id="name">Dear abhi</span>!</h1>
+    <p>We’ve got something special for you... 💖</p>
+    <button id="startBtn">Continue 💌</button>
+  </div>
+
+  <script>
+    document.getElementById("startBtn").addEventListener("click", () => {
+      window.location.href = "confess.html";
+    });
+  </script>
+</body>
+</html>
