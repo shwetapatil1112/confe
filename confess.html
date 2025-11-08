@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💌 Confess Your Feelings</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>💖 Confession Corner</h1>
+    <p>Be honest... your feelings matter 🫶</p>
+
+    <form id="confessionForm" action="https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse" method="POST">
+      <label>Your Confession 💌</label>
+      <textarea name="entry.1234567890" placeholder="Write your confession..." required></textarea>
+
+      <label>Will it is yes? ❤️</label>
+      <select name="entry.0987654321" required>
+        <option value="">Select one...</option>
+        <option value="Yes">Yes 💖</option>
+        <option value="No">No 💔</option>
+      </select>
+
+      <label>Relationship Type 👩‍❤️‍👨</label>
+      <select name="entry.1122334455" required>
+        <option value="">Select one...</option>
+        <option value="Crush">Crush</option>
+        <option value="Close Friend">Close Friend</option>
+        <option value="Soulmate">Soulmate</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <button type="submit">Submit Confession 💫</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
