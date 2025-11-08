@@ -58,30 +58,39 @@
       transform: scale(1.05);
     }
 
-    /* Floating balloons 🎈 */
+    /* Balloons 🎈 */
     .balloon {
       position: absolute;
-      bottom: -100px;
-      width: 40px;
-      height: 55px;
+      bottom: -150px;
+      width: 45px;
+      height: 60px;
       border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, #ff77aa, #ff4081);
-      opacity: 0.9;
+      opacity: 0.85;
       animation: float 10s infinite ease-in;
+    }
+
+    .string {
+      position: absolute;
+      width: 2px;
+      height: 60px;
+      background: rgba(0,0,0,0.1);
+      bottom: -60px;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     @keyframes float {
       0% {
         transform: translateY(0) rotate(0deg);
-        opacity: 0.8;
+        opacity: 0.9;
       }
       50% {
-        transform: translateY(-600px) rotate(10deg);
+        transform: translateY(-700px) rotate(10deg);
         opacity: 1;
       }
       100% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0.8;
+        transform: translateY(0) rotate(-5deg);
+        opacity: 0.9;
       }
     }
 
@@ -93,12 +102,25 @@
 </head>
 <body>
 
-  <!-- 🎈 Balloons for background -->
-  <div class="balloon" style="left:10%;animation-delay:0s;"></div>
-  <div class="balloon" style="left:30%;animation-delay:2s;background:#ffb6c1;"></div>
-  <div class="balloon" style="left:60%;animation-delay:4s;background:#ffc1cc;"></div>
-  <div class="balloon" style="left:80%;animation-delay:6s;background:#ff8fab;"></div>
+  <!-- 🎂 Floating Balloons -->
+  <script>
+    const colors = ['#ff4081', '#ffb6c1', '#ff8fab', '#ffd1dc', '#fad0c4', '#ffc0cb'];
+    for (let i = 0; i < 20; i++) {  // 👈 increase number for more balloons
+      const balloon = document.createElement('div');
+      const string = document.createElement('div');
+      balloon.classList.add('balloon');
+      string.classList.add('string');
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      balloon.style.background = `radial-gradient(circle at 30% 30%, ${color}, #ff4081)`;
+      balloon.style.left = Math.random() * 100 + 'vw';
+      balloon.style.animationDuration = 8 + Math.random() * 6 + 's';
+      balloon.style.animationDelay = Math.random() * 5 + 's';
+      balloon.appendChild(string);
+      document.body.appendChild(balloon);
+    }
+  </script>
 
+  <!-- 🎉 Main Content -->
   <div class="container">
     <h1>🎂 Happy Birthday Abhi!</h1>
     <p>Someone special has a message waiting for you 💌<br>
