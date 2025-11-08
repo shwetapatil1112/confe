@@ -74,9 +74,14 @@
     <h1>💌 Confession Corner</h1>
     <p>Be honest and express what your heart feels 🩷</p>
 
-    <form id="confessionForm" 
-      action="https://docs.google.com/forms/d/e/1FAIpQLScqMhaeX6NNbKdEfQ7r0QGrgtAWiOQOM0u3pw6BCuel5aHNfg/formResponse" 
-      method="POST">
+    <!-- Hidden iframe for CORS-safe submission -->
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+    <form id="confessionForm"
+      action="https://docs.google.com/forms/d/e/1FAIpQLScqMhaeX6NNbKdEfQ7r0QGrgtAWiOQOM0u3pw6BCuel5aHNfg/formResponse"
+      method="POST"
+      target="hidden_iframe"
+      onsubmit="submitted=true;">
 
       <!-- 1️⃣ -->
       <label>1. Be honest and express what’s in your heart. I deserve to know 💌</label>
@@ -117,12 +122,11 @@
   </div>
 
   <script>
-    document.getElementById("confessionForm").addEventListener("submit", (e) => {
-      e.preventDefault();
-      const form = e.target;
-      form.submit();
+    let submitted = false;
 
-      // Delay to ensure Google Form receives data before redirect
+    document.getElementById("confessionForm").addEventListener("submit", (e) => {
+      submitted = true;
+      // Redirect after short delay to ensure form submission completes
       setTimeout(() => {
         window.location.href = "thankyou.html";
       }, 2000);
